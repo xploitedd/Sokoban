@@ -1,6 +1,7 @@
 package isel.poo.sokoban.model.cells.directional;
 
 import isel.poo.sokoban.model.Dir;
+import isel.poo.sokoban.model.actors.Actor;
 import isel.poo.sokoban.model.cells.PlayableCell;
 
 public abstract class DirectionalCell extends PlayableCell {
@@ -11,6 +12,11 @@ public abstract class DirectionalCell extends PlayableCell {
 
     public abstract Dir getDirection();
 
-    public boolean canMoveForward(Dir fromDir) { return getDirection() == fromDir; }
+    @Override
+    public boolean moveActorToCell(Dir dir, Actor actor) {
+        if (dir != getDirection())
+            return false;
 
+        return super.moveActorToCell(dir, actor);
+    }
 }

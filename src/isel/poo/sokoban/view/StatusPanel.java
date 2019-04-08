@@ -56,7 +56,7 @@ public class StatusPanel extends ParentView {
         Console.color(Console.YELLOW, bkColor);
         print(10, 0, "Cursor");
         print(12, 0, "Esc");
-        print(14, 0, "S");
+        print(14, 0, "R");
         Console.color(Console.WHITE, bkColor);
         print(11, 1, "move");
         print(13, 1, "finish");

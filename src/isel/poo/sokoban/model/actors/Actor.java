@@ -10,13 +10,7 @@ import isel.poo.sokoban.model.cells.directional.UpCell;
 public abstract class Actor {
 
     public boolean move(Level level, Dir dir, Cell from, Cell to) {
-        if (to.getType() == UpCell.TYPE || to.getType() == DownCell.TYPE) {
-            DirectionalCell directionalCell = (DirectionalCell) to;
-            if (!directionalCell.canMoveForward(dir))
-                return false;
-        }
-
-        if (to.setActor(from.getActor())) {
+        if (to.moveActorToCell(dir, from.getActor())) {
             from.setActor(null);
             level.updateCell(from);
             level.updateCell(to);

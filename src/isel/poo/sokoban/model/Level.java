@@ -16,9 +16,10 @@ public class Level {
     private final int width;
 
     private Game game;
-    private Cell playerCell;
+    private Cell[] playersCell;
     private Cell[][] board;
     private Observer observer;
+    private int players = 0;
     private int moves;
     private int boxes;
     private boolean manIsDead;
@@ -35,6 +36,7 @@ public class Level {
         this.width = width;
 
         board = new Cell[height][width];
+        playersCell = new Cell[2];
     }
 
     /**
@@ -54,7 +56,10 @@ public class Level {
                 board[j][i] = null;
         }
 
-        playerCell = null;
+        for (int i = 0; i < players; i++)
+            playersCell[i] = null;
+
+        players = 0;
         moves = 0;
         boxes = 0;
         manIsDead = false;
@@ -79,8 +84,8 @@ public class Level {
             Actor actor = null;
             switch (type) {
                 case Player.TYPE:
-                    actor = new Player();
-                    playerCell = cell;
+                    actor = new Player(players);
+                    playersCell[players++] = cell;
                     break;
                 case Box.TYPE:
                     actor = new Box();
@@ -112,7 +117,11 @@ public class Level {
      * Moves the man in the given direction
      * @param dir Direction to move
      */
-    public void moveMan(Dir dir) {
+    public void moveMan(Dir dir, int playerId) {
+        if (playerId >= players)
+            return;
+
+        Cell playerCell = playersCell[playerId];
         int l = playerCell.line, c = playerCell.column;
         int nextL = l + dir.dl;
         int nextC = c + dir.dc;
@@ -122,7 +131,7 @@ public class Level {
             return;
 
         if (playerCell.getActor().move(this, dir, playerCell, nextCell)) {
-            playerCell = nextCell;
+            playersCell[playerId] = nextCell;
             ++moves;
             manIsDead = nextCell.getType() == HoleCell.TYPE;
         }

@@ -19,7 +19,7 @@ public abstract class PlayableCellTile extends CellTile {
             Actor actor = cell.getActor();
             if (actor instanceof Player) {
                 setPlayerBackground();
-                printChar('@', Console.BLACK);
+                printChar((char) (((Player) actor).playerId + '1'), Console.BLACK);
             } else if (actor instanceof LightBox) {
                 setLightBoxBackground();
                 printChar('#', Console.BLACK);

@@ -1,5 +1,6 @@
 package isel.poo.sokoban.model.cells;
 
+import isel.poo.sokoban.model.Dir;
 import isel.poo.sokoban.model.actors.Actor;
 import isel.poo.sokoban.model.cells.directional.DownCell;
 import isel.poo.sokoban.model.cells.directional.UpCell;
@@ -16,7 +17,9 @@ public abstract class Cell {
         column = c;
     }
 
-    public boolean setActor(Actor actor) { return false; }
+    public boolean moveActorToCell(Dir dir, Actor actor) { return false; }
+
+    public final void setActor(Actor actor) { this.actor = actor; }
 
     public final Actor getActor() { return actor; }
 

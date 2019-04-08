@@ -109,16 +109,21 @@ public class Sokoban {
         int key = getKeyPressed();          // Wait a step time and read a key
         if (key > 0) {
             Dir dir = null;
+            int playerId = 0;
             switch (key) {
+                case VK_W: playerId = 1;
                 case VK_UP: dir = Dir.UP; break;
+                case VK_S: playerId = 1;
                 case VK_DOWN: dir = Dir.DOWN; break;
+                case VK_A: playerId = 1;
                 case VK_LEFT: dir = Dir.LEFT; break;
+                case VK_D: playerId = 1;
                 case VK_RIGHT: dir = Dir.RIGHT; break;
-                case VK_S: model.restart(); refreshView(); break;
+                case VK_R: model.restart(); refreshView(); break;
                 case VK_ESCAPE: escaped=true; return;
             }
             if (dir!=null) {
-                level.moveMan(dir);
+                level.moveMan(dir, playerId);
                 status.setMoves(level.getMoves());
                 status.setBoxes(level.getRemainingBoxes());
             }

@@ -12,7 +12,7 @@
 
 #1 8 x 8
 XXXXXXXX
-XH a  *X
+XH@a  *X
 XX   XXX
 .XXUDX..
 ..X BXX.
