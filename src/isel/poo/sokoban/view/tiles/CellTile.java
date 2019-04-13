@@ -13,6 +13,11 @@ public abstract class CellTile extends Tile {
     private final int tileColor;
     protected final Cell cell;
 
+    /**
+     * Constructor of CellTile
+     * @param cell Cell that corresponds to this tile
+     * @param tileColor Background color of this tile
+     */
     CellTile(Cell cell, int tileColor) {
         this.cell = cell;
         this.tileColor = tileColor;
@@ -23,6 +28,11 @@ public abstract class CellTile extends Tile {
         setBackground(tileColor);
     }
 
+    /**
+     * Prints a char to the tile
+     * @param p char to be printed
+     * @param foregroundColor foreground color of the char
+     */
     protected void printChar(char p, int foregroundColor) {
         Console.setForeground(foregroundColor);
         for (int c = 0; c < SIDE; ++c) {
@@ -31,6 +41,11 @@ public abstract class CellTile extends Tile {
         }
     }
 
+    /**
+     * Transforms a cell object into a cell tile
+     * @param cell Cell to be transformed
+     * @return corresponding CellTile
+     */
     public static CellTile tileOf(Cell cell) {
         if (cell instanceof FloorCell)
             return new FloorCellTile(cell);

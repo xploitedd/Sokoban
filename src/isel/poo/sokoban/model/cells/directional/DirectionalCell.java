@@ -10,6 +10,10 @@ public abstract class DirectionalCell extends PlayableCell {
         super(l, c);
     }
 
+    /**
+     * Returns which direction an actor can move
+     * @return allowed direction
+     */
     public abstract Dir getDirection();
 
     @Override

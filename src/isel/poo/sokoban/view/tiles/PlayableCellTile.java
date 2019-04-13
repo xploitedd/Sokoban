@@ -19,7 +19,8 @@ public abstract class PlayableCellTile extends CellTile {
             Actor actor = cell.getActor();
             if (actor instanceof Player) {
                 setPlayerBackground();
-                printChar((char) (((Player) actor).playerId + '1'), Console.BLACK);
+                int playerId = ((Player) actor).playerId + '1';
+                printChar((char) playerId, Console.BLACK);
             } else if (actor instanceof LightBox) {
                 setLightBoxBackground();
                 printChar('#', Console.BLACK);
@@ -30,10 +31,19 @@ public abstract class PlayableCellTile extends CellTile {
         }
     }
 
+    /**
+     * Sets the player background color
+     */
     protected void setPlayerBackground() { Console.setBackground(Console.YELLOW); }
 
+    /**
+     * Sets the box background color
+     */
     protected void setBoxBackground() { Console.setBackground(Console.RED); }
 
+    /**
+     * Sets the LightBox background color
+     */
     protected void setLightBoxBackground() { Console.setBackground(Console.BLUE); }
 
 }

@@ -96,9 +96,9 @@ public class Sokoban {
      */
     private class Updater implements Level.Observer {
         @Override
-        public void cellUpdated(Cell cell) { view.getTile(cell.line, cell.column).repaint(); }
+        public void onCellUpdated(Cell cell) { view.getTile(cell.line, cell.column).repaint(); }
         @Override
-        public void cellReplaced(int l, int c, Cell cell) { view.setTile(l,c, CellTile.tileOf(cell)); }
+        public void onCellReplaced(int l, int c, Cell cell) { view.setTile(l,c, CellTile.tileOf(cell)); }
     }
     private Updater updater = new Updater();
 

@@ -10,6 +10,10 @@ public final class Player extends Actor {
 
     public final int playerId;
 
+    /**
+     * Constructor for the player actor
+     * @param playerId playerId of this player
+     */
     public Player(int playerId) {
         this.playerId = playerId;
     }

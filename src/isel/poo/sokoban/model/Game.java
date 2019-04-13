@@ -1,8 +1,6 @@
 package isel.poo.sokoban.model;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Scanner;
 
 public class Game {

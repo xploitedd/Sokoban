@@ -14,4 +14,5 @@ public abstract class PlayableCell extends Cell {
         this.actor = actor;
         return true;
     }
+
 }

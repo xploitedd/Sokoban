@@ -141,7 +141,7 @@ public class Level {
      * Updates the cell
      * @param cell Cell to be updated
      */
-    public void updateCell(Cell cell) { observer.cellUpdated(cell); }
+    public void updateCell(Cell cell) { observer.onCellUpdated(cell); }
 
     /**
      * Replaces a cell by another one
@@ -151,7 +151,7 @@ public class Level {
     public void replaceCell(Cell replaced, Cell replace) {
         int l = replaced.line, c = replaced.column;
         board[l][c] = replace;
-        observer.cellReplaced(l, c, replace);
+        observer.onCellReplaced(l, c, replace);
     }
 
     /**
@@ -230,8 +230,21 @@ public class Level {
 
     public interface Observer {
 
-        void cellUpdated(Cell cell);
-        void cellReplaced(int l, int c, Cell cell);
+        /**
+         * Called when a cell gets updated
+         * e.g an actor moves into it
+         * @param cell Cell that is updated
+         */
+        void onCellUpdated(Cell cell);
+
+        /**
+         * Called when a cell gets replaced
+         * e.g a box moves into a hole and the cell transforms into Floor
+         * @param l Line where the current cell is
+         * @param c Column where the current cell is
+         * @param cell Replace cell
+         */
+        void onCellReplaced(int l, int c, Cell cell);
 
     }
 
