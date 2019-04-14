@@ -8,7 +8,7 @@ import isel.poo.sokoban.model.cells.directional.UpCell;
 
 public abstract class CellTile extends Tile {
 
-    public static final int SIDE = 2;
+    public static int SIDE = 2;
 
     private final int tileColor;
     protected final Cell cell;

@@ -66,10 +66,6 @@ public class Sokoban {
         // Opens panel of tiles with dimensions appropriate to the current level.
         // Starts the viewer for each model cell.
         // Shows the initial state of all cells in the model.
-        int height = level.getHeight(), width = level.getWidth();
-        view = new TilePanel(height,width, CellTile.SIDE);               // Create view for cells
-        win.clear();                                                    // Clear area of previous level
-        view.center(WIN_HEIGHT,WIN_WIDTH);                              // Center view in area
         level.setObserver(updater);                                     // Set listener of level
         refreshView();
         do
@@ -81,11 +77,19 @@ public class Sokoban {
     }
 
     private void refreshView() {
+        int height = level.getHeight(), width = level.getWidth();
+        if(height > 12 || width > 12)   // Resize the SIDE of CellTiles if the level is too big
+            CellTile.SIDE = 1;
+        else
+            CellTile.SIDE = 2;
+        view = new TilePanel(height,width, CellTile.SIDE);               // Create view for cells
+        win.clear();                                                    // Clear area of previous level
+        view.center(WIN_HEIGHT,WIN_WIDTH);                              // Center view in area
         status.setLevel(level.getNumber());                             // Update status View
         status.setBoxes(level.getRemainingBoxes());
         status.setMoves(level.getMoves());
         status.repaint();
-        int height = level.getHeight(), width = level.getWidth();
+
         for (int l = 0; l < height; l++)                                // Create each tile for each cell
             for (int c = 0; c < width; c++)
                 view.setTile(l,c, CellTile.tileOf( level.getCell(l,c) ));

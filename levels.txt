@@ -22,6 +22,19 @@ X  P*X
 XXXXXX
 a=*#
 
+#2 11 x 19
+....XXXXX..........
+....X   X..........
+....XB  X..........
+..XXX  BXX.........
+..X  B B X.........
+XXX X XX X...XXXXXX
+X   X XX XXXXX  **X
+X B  B          **X
+XXXXX XXX X@XX  **X
+....X     XXXXXXXXX
+....XXXXXXX........
+
 #1 8 x 8
 XXXXXXXX
 XH@a  *X
