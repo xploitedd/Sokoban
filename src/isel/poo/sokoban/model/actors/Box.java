@@ -17,14 +17,13 @@ public class Box extends Actor {
             return false;
 
         if (super.move(level, dir, from, to)) {
-            int boxCount = level.getRemainingBoxes();
             if (to.getType() == ObjectiveCell.TYPE) {
                 if (from.getType() != ObjectiveCell.TYPE)
-                    level.updateBoxCount(--boxCount);
+                    level.incrementBoxCount(-1);
             } else if (to.getType() == HoleCell.TYPE) {
                 level.replaceCell(to, new FloorCell(to.line, to.column));
             } else if (from.getType() == ObjectiveCell.TYPE)
-                level.updateBoxCount(++boxCount);
+                level.incrementBoxCount(1);
 
             return true;
         }

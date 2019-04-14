@@ -30,13 +30,13 @@ public class Level {
      * @param height Height of the level
      * @param width Width of the level
      */
-    Level(int levelNumber, int height, int width) {
+    Level(int levelNumber, int height, int width, int maxPlayers) {
         this.levelNumber = levelNumber;
         this.height = height;
         this.width = width;
 
         board = new Cell[height][width];
-        playersCell = new Cell[2];
+        playersCell = new Cell[maxPlayers];
     }
 
     /**
@@ -156,9 +156,9 @@ public class Level {
 
     /**
      * Updates the remaining boxes for this level
-     * @param boxes Remaining boxes
+     * @param delta Increment/Decrement for the box count
      */
-    public void updateBoxCount(int boxes) { this.boxes = boxes; }
+    public void incrementBoxCount(int delta) { boxes += delta; }
 
     /**
      * Sets an observer for this level

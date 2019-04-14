@@ -1,10 +1,7 @@
 package isel.poo.sokoban.view.tiles;
 
 import isel.leic.pg.Console;
-import isel.poo.sokoban.model.actors.Actor;
-import isel.poo.sokoban.model.actors.Box;
-import isel.poo.sokoban.model.actors.LightBox;
-import isel.poo.sokoban.model.actors.Player;
+import isel.poo.sokoban.model.actors.*;
 import isel.poo.sokoban.model.cells.Cell;
 
 public abstract class PlayableCellTile extends CellTile {

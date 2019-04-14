@@ -10,9 +10,6 @@ public abstract class PlayableCell extends Cell {
     }
 
     @Override
-    public boolean moveActorToCell(Dir dir, Actor actor) {
-        this.actor = actor;
-        return true;
-    }
+    public boolean canHaveActor(Dir dir, Actor actor) { return true; }
 
 }

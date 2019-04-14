@@ -3,6 +3,8 @@ package isel.poo.sokoban.model.cells;
 import isel.poo.sokoban.model.Dir;
 import isel.poo.sokoban.model.actors.Actor;
 import isel.poo.sokoban.model.cells.directional.DownCell;
+import isel.poo.sokoban.model.cells.directional.LeftCell;
+import isel.poo.sokoban.model.cells.directional.RightCell;
 import isel.poo.sokoban.model.cells.directional.UpCell;
 
 public abstract class Cell {
@@ -29,7 +31,7 @@ public abstract class Cell {
      * @param actor Actor to move
      * @return true if allowed to move, false otherwise
      */
-    public boolean moveActorToCell(Dir dir, Actor actor) { return false; }
+    public boolean canHaveActor(Dir dir, Actor actor) { return false; }
 
     /**
      * Sets the actor
@@ -78,6 +80,10 @@ public abstract class Cell {
                 return new UpCell(l, c);
             case DownCell.TYPE:
                 return new DownCell(l, c);
+            case RightCell.TYPE:
+                return new RightCell(l, c);
+            case LeftCell.TYPE:
+                return new LeftCell(l, c);
             default:
                 return null;
         }

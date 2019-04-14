@@ -39,7 +39,7 @@ public class Loader {
     Level load(int levelNumber) throws LevelFormatException {
         if (!findHeader(levelNumber))    // Find the header line
             return null;
-        model = new Level(levelNumber,height,width);    // Build the model
+        model = new Level(levelNumber,height,width, Game.MAX_PLAYERS);    // Build the model
         loadGrid();                         // Load cells information
         return model;
     }

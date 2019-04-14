@@ -3,14 +3,16 @@ package isel.poo.sokoban.view.tiles;
 import isel.leic.pg.Console;
 import isel.poo.sokoban.model.cells.Cell;
 
-public final class DownCellTile extends FloorCellTile {
+public class LeftCellTile extends FloorCellTile {
 
-    DownCellTile(Cell cell) { super(cell); }
+    LeftCellTile(Cell cell) {
+        super(cell);
+    }
 
     @Override
     public void clear() {
         super.clear();
-        printChar('˅', Console.RED);
+        printChar('˂', Console.RED);
     }
 
 }

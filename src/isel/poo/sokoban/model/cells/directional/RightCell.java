@@ -2,12 +2,12 @@ package isel.poo.sokoban.model.cells.directional;
 
 import isel.poo.sokoban.model.Dir;
 
-public final class UpCell extends DirectionalCell {
+public final class RightCell extends DirectionalCell {
 
-    public static final char TYPE = 'U';
-    public static final Dir DIRECTION = Dir.UP;
+    public static final char TYPE = 'R';
+    public static final Dir DIRECTION = Dir.RIGHT;
 
-    public UpCell(int l, int c) {
+    public RightCell(int l, int c) {
         super(l, c);
     }
 

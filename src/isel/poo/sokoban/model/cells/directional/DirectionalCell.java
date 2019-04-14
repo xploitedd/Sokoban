@@ -17,10 +17,11 @@ public abstract class DirectionalCell extends PlayableCell {
     public abstract Dir getDirection();
 
     @Override
-    public boolean moveActorToCell(Dir dir, Actor actor) {
+    public boolean canHaveActor(Dir dir, Actor actor) {
         if (dir != getDirection())
             return false;
 
-        return super.moveActorToCell(dir, actor);
+        return super.canHaveActor(dir, actor);
     }
+
 }

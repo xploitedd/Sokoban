@@ -4,7 +4,7 @@ import isel.leic.pg.Console;
 import isel.poo.console.FieldView;
 import isel.poo.console.ParentView;
 
-public class StatusPanel extends ParentView {
+public final class StatusPanel extends ParentView {
 
     public static final int WIDTH = 7;
 

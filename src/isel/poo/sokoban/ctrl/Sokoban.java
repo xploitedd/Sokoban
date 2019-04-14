@@ -95,11 +95,15 @@ public class Sokoban {
      * Listener of model (Game and Level) to update View
      */
     private class Updater implements Level.Observer {
+
         @Override
         public void onCellUpdated(Cell cell) { view.getTile(cell.line, cell.column).repaint(); }
+
         @Override
         public void onCellReplaced(int l, int c, Cell cell) { view.setTile(l,c, CellTile.tileOf(cell)); }
+
     }
+
     private Updater updater = new Updater();
 
     /**

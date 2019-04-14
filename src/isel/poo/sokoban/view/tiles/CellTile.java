@@ -4,6 +4,8 @@ import isel.leic.pg.Console;
 import isel.poo.console.tile.Tile;
 import isel.poo.sokoban.model.cells.*;
 import isel.poo.sokoban.model.cells.directional.DownCell;
+import isel.poo.sokoban.model.cells.directional.LeftCell;
+import isel.poo.sokoban.model.cells.directional.RightCell;
 import isel.poo.sokoban.model.cells.directional.UpCell;
 
 public abstract class CellTile extends Tile {
@@ -59,6 +61,10 @@ public abstract class CellTile extends Tile {
             return new UpCellTile(cell);
         else if (cell instanceof DownCell)
             return new DownCellTile(cell);
+        else if (cell instanceof RightCell)
+            return new RightCellTile(cell);
+        else if (cell instanceof LeftCell)
+            return new LeftCellTile(cell);
         else
             return new EmptyCellTile(cell);
     }

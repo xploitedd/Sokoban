@@ -4,6 +4,9 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Game {
+
+    public static final int MAX_PLAYERS = 2;
+
     private final InputStream input;
     private int levelNumber = 0;
     private Level curLevel = null;

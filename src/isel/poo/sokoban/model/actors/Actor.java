@@ -15,10 +15,14 @@ public abstract class Actor {
      * @return true if the actor moves, false otherwise
      */
     public boolean move(Level level, Dir dir, Cell from, Cell to) {
-        if (to.moveActorToCell(dir, from.getActor())) {
+        Actor actor = from.getActor();
+        if (to.canHaveActor(dir, actor)) {
+            to.setActor(actor);
             from.setActor(null);
+
             level.updateCell(from);
             level.updateCell(to);
+
             return true;
         }
 

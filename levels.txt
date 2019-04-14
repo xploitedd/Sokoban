@@ -7,6 +7,11 @@
  H - Hole
  B - Box
  @ - Man
+ U - Up
+ D - Down
+ L - Left
+ R - Right
+ # - Light Box
  lowerCaseLetter - MultiChar
 */
 
