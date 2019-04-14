@@ -84,6 +84,8 @@ public abstract class Cell {
                 return new RightCell(l, c);
             case LeftCell.TYPE:
                 return new LeftCell(l, c);
+            case DoorCell.TYPE:
+                return new DoorCell(l, c);
             default:
                 return null;
         }

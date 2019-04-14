@@ -1,9 +1,6 @@
 package isel.poo.sokoban.model;
 
-import isel.poo.sokoban.model.actors.Actor;
-import isel.poo.sokoban.model.actors.Box;
-import isel.poo.sokoban.model.actors.LightBox;
-import isel.poo.sokoban.model.actors.Player;
+import isel.poo.sokoban.model.actors.*;
 import isel.poo.sokoban.model.cells.Cell;
 import isel.poo.sokoban.model.cells.FloorCell;
 import isel.poo.sokoban.model.cells.HoleCell;
@@ -94,6 +91,10 @@ public class Level {
                 case LightBox.TYPE:
                     actor = new LightBox();
                     addBox(cell);
+                    break;
+                case Key.TYPE:
+                    actor = new Key();
+                    break;
             }
 
             cell.setActor(actor);
@@ -130,10 +131,15 @@ public class Level {
         if (nextCell == null)
             return;
 
-        if (playerCell.getActor().move(this, dir, playerCell, nextCell)) {
+        Player player = (Player) playerCell.getActor();
+        if (player.move(this, dir, playerCell, nextCell)) {
             playersCell[playerId] = nextCell;
             ++moves;
             manIsDead = nextCell.getType() == HoleCell.TYPE;
+            if (manIsDead)
+                observer.onPlayerDead(player);
+            else
+                observer.onPlayerMove(player);
         }
     }
 
@@ -153,6 +159,12 @@ public class Level {
         board[l][c] = replace;
         observer.onCellReplaced(l, c, replace);
     }
+
+    /**
+     * Called when a box is moved by another actor
+     * @param box Box that is moved
+     */
+    public void boxMoved(Box box) { observer.onBoxMove(box); }
 
     /**
      * Updates the remaining boxes for this level
@@ -245,6 +257,24 @@ public class Level {
          * @param cell Replace cell
          */
         void onCellReplaced(int l, int c, Cell cell);
+
+        /**
+         * Called when a player gets killed
+         * @param player Player that was killed
+         */
+        void onPlayerDead(Player player);
+
+        /**
+         * Called when a player is moved
+         * @param player Player that was moved
+         */
+        void onPlayerMove(Player player);
+
+        /**
+         * Called when a box is moved
+         * @param box Box that was moved
+         */
+        void onBoxMove(Box box);
 
     }
 

@@ -20,8 +20,8 @@ public final class Player extends Actor {
 
     @Override
     public boolean move(Level level, Dir dir, Cell from, Cell to) {
-        Actor toActor = to.getActor();
-        if (toActor != null) {
+        if (to.hasActor()) {
+            Actor toActor = to.getActor();
             if (toActor.getType() == Player.TYPE)
                 return false;
 

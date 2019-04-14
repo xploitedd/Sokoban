@@ -12,6 +12,8 @@
  L - Left
  R - Right
  # - Light Box
+ K - Key
+ P - Door
  lowerCaseLetter - MultiChar
 */
 
