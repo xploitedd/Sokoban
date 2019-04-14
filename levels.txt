@@ -7,8 +7,20 @@
  H - Hole
  B - Box
  @ - Man
+ U,D,L,R - Up,Down,Left and Right One-way cells
+ P - Door
+ K - Key
  lowerCaseLetter - MultiChar
 */
+
+#1 6 x 6
+XXXXXP
+X@ L X
+X *##X
+X K#*X
+X  P*X
+XXXXXX
+a=*#
 
 #1 8 x 8
 XXXXXXXX

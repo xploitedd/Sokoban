@@ -59,6 +59,8 @@ public abstract class CellTile extends Tile {
             return new UpCellTile(cell);
         else if (cell instanceof DownCell)
             return new DownCellTile(cell);
+        else if (cell instanceof DoorCell)
+            return new DoorCellTile(cell);
         else
             return new EmptyCellTile(cell);
     }

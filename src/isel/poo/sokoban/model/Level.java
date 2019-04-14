@@ -1,9 +1,6 @@
 package isel.poo.sokoban.model;
 
-import isel.poo.sokoban.model.actors.Actor;
-import isel.poo.sokoban.model.actors.Box;
-import isel.poo.sokoban.model.actors.LightBox;
-import isel.poo.sokoban.model.actors.Player;
+import isel.poo.sokoban.model.actors.*;
 import isel.poo.sokoban.model.cells.Cell;
 import isel.poo.sokoban.model.cells.FloorCell;
 import isel.poo.sokoban.model.cells.HoleCell;
@@ -94,6 +91,10 @@ public class Level {
                 case LightBox.TYPE:
                     actor = new LightBox();
                     addBox(cell);
+                    break;
+                case Key.TYPE:
+                    actor = new Key();
+                    break;
             }
 
             cell.setActor(actor);
