@@ -15,6 +15,7 @@ public final class Player extends Actor {
      * @param playerId playerId of this player
      */
     public Player(int playerId) {
+        super(TYPE);
         this.playerId = playerId;
     }
 
@@ -31,11 +32,6 @@ public final class Player extends Actor {
         }
 
         return super.move(level, dir, from, to);
-    }
-
-    @Override
-    public char getType() {
-        return TYPE;
     }
 
 }

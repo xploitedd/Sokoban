@@ -22,7 +22,7 @@ XXXXXXXX
 XH@a  *X
 XX   XXX
 .XXUDX..
-..X BXX.
+..X #XX.
 ..X   XX
 ..X   @X
 ..XXXXXX

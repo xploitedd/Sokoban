@@ -9,6 +9,7 @@ import isel.poo.sokoban.model.cells.directional.UpCell;
 
 public abstract class Cell {
 
+    private final char type;
     public final int line;
     public final int column;
 
@@ -19,9 +20,11 @@ public abstract class Cell {
      * @param l line where the cell is
      * @param c column where the cell is
      */
-    public Cell(int l, int c) {
+    public Cell(int l, int c, char type) {
         line = l;
         column = c;
+
+        this.type = type;
     }
 
     /**
@@ -55,7 +58,7 @@ public abstract class Cell {
      * Gets the cell type
      * @return type of the cell
      */
-    public abstract char getType();
+    public final char getType() { return type; }
 
     /**
      * Transforms a cell type into a Cell-like object

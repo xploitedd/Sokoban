@@ -10,6 +10,10 @@ public class Key extends Actor {
 
     public static final char TYPE = 'K';
 
+    public Key() {
+        super(TYPE);
+    }
+
     @Override
     public boolean move(Level level, Dir dir, Cell from, Cell to) {
         if (to.hasActor())
@@ -23,11 +27,6 @@ public class Key extends Actor {
         }
 
         return false;
-    }
-
-    @Override
-    public char getType() {
-        return TYPE;
     }
 
 }

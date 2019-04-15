@@ -6,15 +6,18 @@ import isel.poo.sokoban.model.cells.PlayableCell;
 
 public abstract class DirectionalCell extends PlayableCell {
 
-    public DirectionalCell(int l, int c) {
-        super(l, c);
+    private Dir direction;
+
+    DirectionalCell(int l, int c, char type, Dir direction) {
+        super(l, c, type);
+        this.direction = direction;
     }
 
     /**
      * Returns which direction an actor can move
      * @return allowed direction
      */
-    public abstract Dir getDirection();
+    public final Dir getDirection() { return direction; }
 
     @Override
     public boolean canHaveActor(Dir dir, Actor actor) {

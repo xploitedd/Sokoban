@@ -3,7 +3,7 @@ package isel.poo.sokoban.view.tiles;
 import isel.leic.pg.Console;
 import isel.poo.sokoban.model.cells.Cell;
 
-public class RightCellTile extends FloorCellTile {
+public final class RightCellTile extends FloorCellTile {
 
     RightCellTile(Cell cell) {
         super(cell);
