@@ -7,8 +7,8 @@ Actor <|-- Key
 Box <|-- LightBox
 
 abstract class Actor {
-    -type: String
-    ~Actor(type: String)
+    -type: char
+    ~Actor(type: char)
     +move(level, dir, to, from): boolean
     +getType(): char
 }
