@@ -49,9 +49,9 @@ public abstract class CellTile extends Tile {
      * @return corresponding CellTile
      */
     public static CellTile tileOf(Cell cell) {
-        if (cell instanceof FloorCell)
-            return new FloorCellTile(cell);
-        else if (cell instanceof HoleCell)
+        // FloorCell needs to be the last one
+        // since some Cells can extend from it
+        if (cell instanceof HoleCell)
             return new HoleCellTile(cell);
         else if (cell instanceof ObjectiveCell)
             return new ObjectiveCellTile(cell);
@@ -67,6 +67,8 @@ public abstract class CellTile extends Tile {
             return new LeftCellTile(cell);
         else if (cell instanceof DoorCell)
             return new DoorCellTile(cell);
+        else if (cell instanceof FloorCell)
+            return new FloorCellTile(cell);
         else
             return new EmptyCellTile(cell);
     }

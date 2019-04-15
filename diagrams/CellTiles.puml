@@ -1,0 +1,89 @@
+@startuml
+
+Tile <|-- CellTile
+
+CellTile <|-- PlayableCellTile
+CellTile <|-- EmptyCellTile
+PlayableCellTile <|-- FloorCellTile
+PlayableCellTile <|-- HoleCellTile
+PlayableCellTile <|-- DoorCellTile
+CellTile <|-- WallCellTile
+
+FloorCellTile <|-- UpCellTile
+FloorCellTile <|-- DownCellTile
+FloorCellTile <|-- LeftCellTile
+FloorCellTile <|-- RightCellTile
+FloorCellTile <|-- ObjectiveCellTile
+
+abstract class Tile
+
+abstract class CellTile {
+    +{static} SIDE: int
+    -tileColor: int
+    #cell: Cell
+
+    +CellTile(cell: Cell, tileColor: int)
+    #init()
+    #printChar(p: char, foreground: int)
+    +{static} tileOf(cell: Cell): CellTile
+}
+
+abstract class PlayableCellTile {
+    +PlayableCellTile(cell: Cell, tileColor: int)
+    +paint()
+    #setPlayerBackground()
+    #setBoxBackground()
+    #setLightBoxBackground()
+}
+
+class FloorCellTile {
+    +FloorCellTile(cell: Cell)
+}
+
+class UpCellTile {
+    +UpCellTile(cell: Cell)
+    +clear()
+}
+
+class DownCellTile {
+    +DownCellTile(cell: Cell)
+    +clear()
+}
+
+class LeftCellTile {
+    +LeftCellTile(cell: Cell)
+    +clear()
+}
+
+class RightCellTile {
+    +RightCellTile(cell: Cell)
+    +clear()
+}
+
+class EmptyCellTile {
+    +EmptyCellTile(cell: Cell)
+}
+
+class WallCellTile {
+    +WallCellTile(cell: Cell)
+}
+
+class HoleCellTile {
+    +HoleCellTile(cell: Cell)
+    +clear()
+    #setPlayerBackground()
+}
+
+class DoorCellTile {
+    +DoorCellTile(cell: Cell)
+    +clear()
+}
+
+class ObjectiveCellTile {
+    +ObjectiveCellTile(cell: Cell)
+    +clear()
+    #setBoxBackground()
+    #setLightBoxBackground()
+}
+
+@enduml

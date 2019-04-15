@@ -6,7 +6,7 @@ import isel.poo.sokoban.model.cells.Cell;
 import isel.poo.sokoban.model.cells.DoorCell;
 import isel.poo.sokoban.model.cells.FloorCell;
 
-public class Key extends Actor {
+public final class Key extends Actor {
 
     public static final char TYPE = 'K';
 

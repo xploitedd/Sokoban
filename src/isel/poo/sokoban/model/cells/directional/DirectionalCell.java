@@ -2,9 +2,9 @@ package isel.poo.sokoban.model.cells.directional;
 
 import isel.poo.sokoban.model.Dir;
 import isel.poo.sokoban.model.actors.Actor;
-import isel.poo.sokoban.model.cells.PlayableCell;
+import isel.poo.sokoban.model.cells.FloorCell;
 
-public abstract class DirectionalCell extends PlayableCell {
+public abstract class DirectionalCell extends FloorCell {
 
     private Dir direction;
 
@@ -21,7 +21,7 @@ public abstract class DirectionalCell extends PlayableCell {
 
     @Override
     public boolean canHaveActor(Dir dir, Actor actor) {
-        if (dir != getDirection())
+        if (dir != direction)
             return false;
 
         return super.canHaveActor(dir, actor);

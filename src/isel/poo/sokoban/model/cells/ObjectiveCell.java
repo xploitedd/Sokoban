@@ -1,6 +1,6 @@
 package isel.poo.sokoban.model.cells;
 
-public final class ObjectiveCell extends PlayableCell {
+public final class ObjectiveCell extends FloorCell {
 
     public static final char TYPE = '*';
 
