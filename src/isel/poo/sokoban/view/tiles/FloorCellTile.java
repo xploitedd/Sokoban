@@ -5,7 +5,7 @@ import isel.poo.sokoban.model.cells.Cell;
 
 public class FloorCellTile extends PlayableCellTile {
 
-    FloorCellTile(Cell cell) {
+    public FloorCellTile(Cell cell) {
         super(cell, Console.WHITE);
     }
 

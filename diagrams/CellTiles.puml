@@ -10,10 +10,12 @@ PlayableCellTile <|-- HoleCellTile
 PlayableCellTile <|-- DoorCellTile
 CellTile <|-- WallCellTile
 
-FloorCellTile <|-- UpCellTile
-FloorCellTile <|-- DownCellTile
-FloorCellTile <|-- LeftCellTile
-FloorCellTile <|-- RightCellTile
+DirectionalCellTile <|-- UpCellTile
+DirectionalCellTile <|-- DownCellTile
+DirectionalCellTile <|-- LeftCellTile
+DirectionalCellTile <|-- RightCellTile
+
+FloorCellTile <|-- DirectionalCellTile
 FloorCellTile <|-- ObjectiveCellTile
 
 abstract class Tile
@@ -23,18 +25,24 @@ abstract class CellTile {
     -tileColor: int
     #cell: Cell
 
-    +CellTile(cell: Cell, tileColor: int)
+    ~CellTile(cell: Cell, tileColor: int)
     #init()
     #printChar(p: char, foreground: int)
     +{static} tileOf(cell: Cell): CellTile
 }
 
 abstract class PlayableCellTile {
-    +PlayableCellTile(cell: Cell, tileColor: int)
+    ~PlayableCellTile(cell: Cell, tileColor: int)
     +paint()
     #setPlayerBackground()
     #setBoxBackground()
     #setLightBoxBackground()
+}
+
+abstract class DirectionalCellTile {
+    -direction: char
+    ~DirectionalCellTile(cell: Cell, direction: char)
+    +clear()
 }
 
 class FloorCellTile {
@@ -43,45 +51,41 @@ class FloorCellTile {
 
 class UpCellTile {
     +UpCellTile(cell: Cell)
-    +clear()
 }
 
 class DownCellTile {
     +DownCellTile(cell: Cell)
-    +clear()
 }
 
 class LeftCellTile {
     +LeftCellTile(cell: Cell)
-    +clear()
 }
 
 class RightCellTile {
     +RightCellTile(cell: Cell)
-    +clear()
 }
 
 class EmptyCellTile {
-    +EmptyCellTile(cell: Cell)
+    ~EmptyCellTile(cell: Cell)
 }
 
 class WallCellTile {
-    +WallCellTile(cell: Cell)
+    ~WallCellTile(cell: Cell)
 }
 
 class HoleCellTile {
-    +HoleCellTile(cell: Cell)
+    ~HoleCellTile(cell: Cell)
     +clear()
     #setPlayerBackground()
 }
 
 class DoorCellTile {
-    +DoorCellTile(cell: Cell)
+    ~DoorCellTile(cell: Cell)
     +clear()
 }
 
 class ObjectiveCellTile {
-    +ObjectiveCellTile(cell: Cell)
+    ~ObjectiveCellTile(cell: Cell)
     +clear()
     #setBoxBackground()
     #setLightBoxBackground()

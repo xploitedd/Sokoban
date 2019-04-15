@@ -7,6 +7,10 @@ import isel.poo.sokoban.model.cells.directional.DownCell;
 import isel.poo.sokoban.model.cells.directional.LeftCell;
 import isel.poo.sokoban.model.cells.directional.RightCell;
 import isel.poo.sokoban.model.cells.directional.UpCell;
+import isel.poo.sokoban.view.tiles.directional.DownCellTile;
+import isel.poo.sokoban.view.tiles.directional.LeftCellTile;
+import isel.poo.sokoban.view.tiles.directional.RightCellTile;
+import isel.poo.sokoban.view.tiles.directional.UpCellTile;
 
 public abstract class CellTile extends Tile {
 
