@@ -5,8 +5,8 @@ import isel.poo.sokoban.model.actors.Actor;
 
 public abstract class PlayableCell extends Cell {
 
-    public PlayableCell(int l, int c, char type) {
-        super(l, c, type);
+    public PlayableCell(int l, int c) {
+        super(l, c);
     }
 
     @Override
